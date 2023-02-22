@@ -1,0 +1,190 @@
+/* Ionescu Andrei Ionut - 321CB */
+
+				Rezolvare Etapa 1
+
+	Task 1:
+	Pentru acest Task am facut o functie numita compute_average pe care am
+folosit-o si pentru alte task-uri. Ea pur si simplu primeste 2 Integeri si intoarce
+impartirea lor ca un Float. Am facut o functie speciala pentru acest lucru
+intrucat in Haskell impartirea a 2 numere necesita mai multi pasi ca deobicei.
+Apoi, am aplicat un map pentru a lua fiecare rand din tabel, ignorand header-ul,
+am calculat suma sa, iar apoi am impartit la numarul de elemente. Astfel am
+fi obtinut un tabel format din Float-uri, nu din String-uri, asa cum se cere.
+Asa ca, am folosit functia printf "%.2f" pentru a afisa toate Float-urile din
+tabel ca un String cu 2 zecimale dupa virgula.
+
+	Task 2:
+	Pentru a vedea cati oameni si-au depasit target-ul, pur si simplu luam
+linie cu linie tabelul, facem suma pe linii, iar apoi aplicam un filter pe deasupra
+listei de numere, iar apoi folosim length pentru a vedea cati oameni au ramas
+dupa filtrare.
+	Pentru a vedea procentajul de persoane care si-au indeplinit scopul, ne vom
+folosi de functia anterioara pentru a vedea cate persoane au mers mai mult de 1000
+de pasi, iar apoi impartim la numarul total de persoane.
+	Pentru a calcula media tuturor oamenilor, mai intai facem suma pe linii de pasi,
+iar apoi adunam toate liniile pentru a obtine suma totala, pe care o impartim apoi
+la numarul total de oameni.
+
+	Task 3:
+	Pentru a vedea mediile pe ore, mai intai am transpus tabelul original. Astfel, acum
+fiecare linie reprezinta o ora. Facem suma pe fiecare rand, iar apoi impartim la numaul
+total de persoane pentru a afla media pe ore. La final, transformam din Float-uri in
+String-uri si adaugam header-ul noului tabel.
+
+	Task 4:
+	Luam fiecare dintre cele 3 tipuri de minute de activitate, iar pentru fiecare numaram
+numarul de persoane din fiecare range, folosindu-ne de un filter si de un length care ne
+da numarul de persoane care au ramas in range-ul respectiv. Dupa aceea, pur si simplu
+punem cap la cap cele 3 rezultate obtinute.
+
+	Task 5:
+	Pentru acest Task am creat un tip de date numit Persoana care cuprinde un nume
+si un numar de pasi. Dupa aceea, am stabilit cum se pot compara 2 astfel de persoane,
+in functie de numarul de pasi, iar apoi in functie de nume. Iar, la final, am transformat
+toate randurile din tabel in persoane si le-am sortat folosind insertion sort.
+
+	Task 6:
+	Pentru acest Task am creat o functie care extrage din tabel coloanele dintr-un anumit
+interval. Astfel, putem extrage coloanele corespunzatoare primelor 4 ore, iar apoi
+ale ultimelor 4 ore.  Iar apoi am mai facut o functie care calculeaza modul mediei dintre
+cele 2 perioade de timp pentru un Row. Am sortat apoi tabelul folosind functia de
+biblioteca sortBy si am folosit functiile anterioare pentru a crea tabelul rezultat.
+
+	Task 7:
+	Pentru acest Task am creat un map specific pentru un Row, iar pentru a aplica functia
+pe toate elementele din tabel, pur si simplu am facut un map folosind acest row_map.
+
+	Task 8:
+	Pentru rmap pur si simplu avem un map simplu, la care atasam in fata un header primit
+prin intermediul parametrului s.
+	Pentru functia get_sleep_total, pur si simplu avem nevoie de un foldr pentru a aduna
+toate elementele de pe rand, ignorand primul element care este adresa de email. Iar la
+final, dupa ce am terminat de facut suma, pur si simplu adaugam adresa de email la inceput.
+
+
+
+				Rezolvare Etapa 2
+
+	Task 1:
+	Pentru tsort mai intai am creat niste functii ajutatoare pentru a gasi indexul unei coloane
+intr-un tabel, dupa nume, iar apoi sa extragem elementul de pe acea coloana de pe un rand
+dat ca parametru. Pentru sortare ma folosesc de sortBy, asa ca vom avea nevoie de functii
+de comparare. Mai intai comparam valorile, crescator daca avem numere, sau lexicografic
+pentru cuvinte. Apoi, dupa ce am comparat 2 valori, trecem la a compara 2 randuri.
+Pentru aceasta, luam valorile de pe coloana cautata folosind primele functii auxiliare,
+iar apoi le comparam folosind functia anterioara. Daca ambele valori sunt egale, atunci
+sortam in functie de rezultatul compararii primelor elemente de pe fiecare rand. Apoi
+pur si simplu adaugam header-ul de tabel si sortam restul randurilor cu sortBy si
+functia de comparatie anterioara.
+
+	Task 2:
+	Pentru acest task am facut o functie care primeste 2 liste de nume de coloane si 
+care intoarce true daca acestea sunt egale si false altfel. Dupa aceea, in functie de
+rezultatul acestei functii, concatenam sau nu randurile din t2 la t1.
+
+	Task 3:
+	Pentru hunion am creat mai multe functii ajutatoare. In primul rand, o functie care
+creaza un Row plin de "", iar apoi o functie care pur si simplu concateneaza 2 randuri,
+daca ele exista amandoua, sau concateneaza cu unul dintre ele cu padding. Apoi,
+pur si simplu parcurgem cele 2 tabele, rand cu rand, si le concatenam randurile, folosind
+functia anterioara.
+
+	Task 4:
+	Pentru acest Task am creat o functie care primeste un nume de coloane si intoarce
+numarul acesteia intr-o lista de nume. Folosind aceasta functie, am trecut la pasul
+urmator si primind o lista de nume, un nume si un rand, putem inlocui valoarea de pe
+coloana cautata cu una data de noi ca parametru,  ceea ce va fi util pentru suprascriere.
+Apoi, cautam intr-un tabel toate intrarile care au aceeasi valoare pentru cheia cautata.
+Si o ultima functie auxiliara importanta primeste 2 liste de nume, cheia dupa care se
+face join-ul, un tabel si 2 randuri. Aceasta functie uneste cele 2 randuri si suprascrie
+valorile din primul rand cu cele din al doilea rand. Combinam toate functiile si obtinem
+tjoin. Pentru acesta, ne plimbam printre toate randurile din primul tabel si cautam in
+al 2-lea tabel toate randurile care au aceiasi valoare pentru cheia data. Dupa aceea,
+facem join la randuri si le adaugam in tabelul final. La acest tabel adaugam si
+header-ul si am terminat tjoin-ul.
+
+	Task 5:
+	Pentru acest Task am facut o functie care primeste un Row si un tabel si aplica functia
+data intre randul primit si toate randurile din tabelul primit ca parametru. Pe scurt, face
+produsul cartezian dintre un tabel cu un rand si un tabel. Apoi, parcurgem toate
+randurile din primul tabel si aplicam aceasta functie intre rand si tabel. Astfel, obtinem
+un sir de tabele care reprezinta produsele carteziene dintre fiecare rand si tabelul t2.
+Apoi, pur si simplu concatenam toate aceste tabele si obtinem rezultatul.
+
+	Task 6:
+	Pentru acest task am facut o functie auxiliara care primeste o lista de numere si
+extrage dintr-un tabel respectivele coloane. Apoi, pentru fiecare nume de coloana,
+am calculat care este indicele coloanei respective si am folosit functia auxiliara
+anterioara pentru a extrage coloanele date de indicii numelor acestora. Pentru ca
+numele primite ca parametru pot fi in orice ordine, pentru a pastra ordinea in care
+apar coloanele in tabelul original, sortam lista de indici inainte.
+
+	Task 7:
+	Pentru acest task, mai intai primim un nume de coloana si un rand si vedem daca
+conditia dorita este True pentru valoarea de pe coloana corespunzatoare din
+randul primit ca parametru. Dupa aceea, folosind aceasta functie auxiliara,
+filtram toate randurile din tabel, ignorand header-ul. La final, dupa ce am terminat
+filtrarea, adaugam la loc header-ul cu numele coloanelor pentru a avea un tabel complet.
+
+
+
+				Rezolvare Etapa 3
+
+	Task 1:
+	Pentru a inrola Query la Eval am folosit mai intai o functie ajutatatoare care primeste
+un QResult si il transforma intr-un tabel. Intrucat marea majoritate a operatiilor au unul
+dintre parmetrii un tabel care este prezentat drept un Query, il evaluam, iar apoi aplicam
+functia auxiliara si obtinem tabelul dorit. Acest lucru este util intrucat toti constructorii
+de date folosesc functii definite la task-urile anterioare care au ca parametrii tabele.
+Odata ce am facut transformarea, pur si simplu ne folosim de functiile anterioare sa
+rezolvam Task-ul.
+
+	Task 2:
+	Pentru acest task facem in mare acelasi lucru pentru String si Float, cu diferenta
+ca pentru Float elementele trebuie transformate din Value in Float utilizand "::".
+	
+	Task 3:
+	Pentru a inrola Filter la eval ne vom folosi de functia feval implementata la Task-ul
+anterior pentru a evalua conditia, iar apoi filtram tabelul primit in functie de aceasta
+conditie. Trebuie sa avem grija deoarece constructorul FieldEq nu contine tipul de date
+"a", astfel incat compilatorul de Haskell nu va stii care implementare pentru acesta
+este corecta intre cea de String si cea de Float. De aceea, in acest caz, trebuie sa
+ii indicam explicit ce tip de conditie este. Eu am considerat ca este de tipul
+FilterCondition String, dar nu era foarte important pe care varianta o consideram
+intrucat ambele erau exact la fel, si pentru Float, cat si pentru String.
+
+	Task 4:
+	Pentru acest Task luam fiecare linie din tabel, fara header, si aplicam operatia intre
+randul curent si un rand care are un indice mai mare (este sub linia curenta). Daca
+rezultatul operatiei este Nothing, atunci trecem mai departe, altfel trebuie sa cream
+o muchie. Ne uitam si la ordinea valorilor pentru a pastra conditia ca From este mai
+mic lexicografic ca To. Cum pentru fiecare linie ne uitam doar la liniile urmatoare,
+o muchie nu se va repeta de 2 sau mai multe ori.
+
+	Task 5:
+	Pentru acest Task trebuie sa cream un graf. Pentru crearea grafului mai intai avem
+nevoie de o operatie mai intai. Aceasta operatie calculeaza distanta dintre 2 
+randuri. Daca distanta dintre ele este 0, atunci se intoarce Nothing, altfel se
+intoarce Just distance. Pentru a face Query-ul final construim mai intai graficul,
+aplicand Query-ul pe tabelul eight_hours. Apoi il filtram sa pastram doar randurile
+care au valoarea mai mare de 4, astfel obtine conditia ca valoarea este >= 5. Iar la
+final sortam Query-ul obtinut pana acum dupa coloana "Value" si obtinem rezultatul
+dorit.
+
+	Task 6:
+	Pentru a corecta typo-urile ne vom folosi de distanta Levenshtein. Pentru a o
+calcula eficient folosim programare dinamica. Pentru a construi matricea avem
+nevoie de randul anterior, si pornind de la acesta se construieste randul curent.
+Dupa ce am calculat matricea Levenshtein, distanta se afla in coltul din dreapta
+jos. Asa ca, atunci cand primim 2 String-uri, calculam matricea si intoarcem ultimul
+element. Cand cautam pentru o valoare gresita numele adevarat, primim coloana
+cu nume corecte si cautam valoarea care este cea mai apropiata de valoarea
+cautata. Pentru a fii mai rapida computatia, inainte de a corecta greselile,
+eliminam din coloana pe care vrem sa o corectam toate valorile care sunt deja
+corecte. 
+	Pentru a corecta un rand ne uitam la valoarea de pe rand care este posibil
+sa fie gresita si o cautam in coloana cu nume corecte. Daca o gasim, inseamna
+ca randul trebuie sa ramana la fel, altfel o cautam in tabelul de valori corectate
+si o inlocuim in randul curent. Intr-un final, pentru a corecta tabelul, pur si
+simplu luam fiecare rand din tabel si le corectam, asa cum am prezentat anterior,
+iar la final adaugam header-ul.
